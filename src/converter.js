@@ -20,14 +20,16 @@ var converter = {};
  */
 converter.convert = function (inputFile, outputFile, cb) {
 
-  // The subtitle files tend to be pretty small.
-  var data = fs.readFileSync(inputFile, {
+  var options = {
     encoding: 'utf8'
-  });
+  };
+
+  // The subtitle files tend to be pretty small.
+  var data = fs.readFileSync(inputFile, options);
 
   var converted = opencc.convertSync(data);
 
-  fs.writeFile(outputFile, converted, function (err) {
+  fs.writeFile(outputFile, converted, options, function (err) {
     return cb(err);
   });
 };
