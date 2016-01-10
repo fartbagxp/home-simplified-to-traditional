@@ -1,0 +1,26 @@
+{
+  "name": "murray-simplified-to-traditional",
+  "version": "1.0.0",
+  "description": "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
+  "main": "index.js",
+  "dependencies": {
+    "opencc": "1.0.x"
+  },
+  "devDependencies": {
+    "chai": "3.4.x",
+    "mocha": "2.3.x"
+  },
+  "scripts": {
+    "test": "mocha -c --recursive ./src/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fartbagxp/murray-simplified-to-traditional.git"
+  },
+  "author": "fartbagxp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fartbagxp/murray-simplified-to-traditional/issues"
+  },
+  "homepage": "https://github.com/fartbagxp/murray-simplified-to-traditional#readme"
+}
