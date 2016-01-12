@@ -14,12 +14,8 @@ var converter = {};
  *
  * @param  {[String]}   inputFile The input file in utf-8 form.
  * @param  {[String]}   outputFile The output file with all the traditional text
- * @param  {Function}   cb(err) This callback is called when the file is read in.
- *                              An error is sent if error occurred parsing
- *                              the file.
  */
-converter.convert = function (inputFile, outputFile, cb) {
-
+converter.convert = function (inputFile, outputFile) {
   var options = {
     encoding: 'utf8'
   };
@@ -29,9 +25,7 @@ converter.convert = function (inputFile, outputFile, cb) {
 
   var converted = opencc.convertSync(data);
 
-  fs.writeFile(outputFile, converted, options, function (err) {
-    return cb(err);
-  });
+  fs.writeFileSync(outputFile, converted, options);
 };
 
 

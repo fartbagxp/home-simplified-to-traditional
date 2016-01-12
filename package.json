@@ -4,6 +4,8 @@
   "description": "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
   "main": "index.js",
   "dependencies": {
+    "commander": "2.9.x",
+    "lodash": "3.10.x",
     "opencc": "1.0.x"
   },
   "devDependencies": {
@@ -22,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/fartbagxp/murray-simplified-to-traditional/issues"
   },
-  "homepage": "https://github.com/fartbagxp/murray-simplified-to-traditional#readme"
+  "homepage": "https://github.com/fartbagxp/murray-simplified-to-traditional#readme",
+  "bin": {
+    "totrad": "./src/convert-cli.js"
+  }
 }

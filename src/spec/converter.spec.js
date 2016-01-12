@@ -14,24 +14,20 @@ describe('Make sure the converter works for converting simplified chinese files 
       var outputFile = path.resolve(__dirname, './data/traditional.txt');
 
       // Convert the output file from simplified chinese to traditional chinese.
-      converter.convert(inputFile, outputFile, function (err) {
+      converter.convert(inputFile, outputFile);
 
-        // There should be no errors.
+      // Read the output file
+      var data = fs.readFileSync(outputFile, {
+        encoding: 'utf8'
+      });
+
+      // Ensure the output file is correct.
+      expect(data).equal('1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let\'s do this!\n');
+
+      // Delete the output file.
+      fs.unlink(outputFile, function (err) {
         expect(err).to.be.null;
-
-        // Read the output file
-        var data = fs.readFileSync(outputFile, {
-          encoding: 'utf8'
-        });
-
-        // Ensure the output file is correct.
-        expect(data).equal('1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let\'s do this!\n');
-
-        // Delete the output file.
-        fs.unlink(outputFile, function (err) {
-          expect(err).to.be.null;
-          done();
-        });
+        done();
       });
     });
 });
