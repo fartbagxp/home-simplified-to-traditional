@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 'use strict';
 
-var converter = require('./src/converter');
+var cli = require('./src/convert-cli');
 
-module.exports = converter;
+cli.work();

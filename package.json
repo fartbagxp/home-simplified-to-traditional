@@ -6,11 +6,13 @@
   "dependencies": {
     "commander": "2.9.x",
     "lodash": "3.10.x",
+    "mkdirp": "0.5.x",
     "opencc": "1.0.x"
   },
   "devDependencies": {
     "chai": "3.4.x",
-    "mocha": "2.3.x"
+    "mocha": "2.3.x",
+    "rimraf": "2.5.x"
   },
   "scripts": {
     "test": "mocha -c --recursive ./src/**/*.spec.js"
@@ -26,6 +28,6 @@
   },
   "homepage": "https://github.com/fartbagxp/murray-simplified-to-traditional#readme",
   "bin": {
-    "totrad": "./src/convert-cli.js"
+    "totrad": "./index.js"
   }
 }

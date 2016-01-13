@@ -10,8 +10,8 @@ describe('Make sure the converter works for converting simplified chinese files 
   it('Ensure that the converter converted the file correctly.',
     function (done) {
 
-      var inputFile = path.resolve(__dirname, './data/simplified.txt');
-      var outputFile = path.resolve(__dirname, './data/traditional.txt');
+      var inputFile = path.resolve(__dirname, './data/simplified.srt');
+      var outputFile = path.resolve(__dirname, './data/traditional.srt');
 
       // Convert the output file from simplified chinese to traditional chinese.
       converter.convert(inputFile, outputFile);
