@@ -16,7 +16,13 @@
   },
   "env": {
     "node": true,
-    "jasmine" : true
+    "jasmine" : true,
+    "mocha" : true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "extends": "eslint:recommended",
   "globals": {

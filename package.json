@@ -3,19 +3,25 @@
   "version": "1.0.0",
   "description": "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "gendocs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "test": "node_modules/.bin/mocha -c --recursive src/",
+    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive ./src/",
+    "lint": "node_modules/.bin/eslint src/",
+    "pre-commit": "npm run cover && npm run lint"
+  },
   "dependencies": {
-    "commander": "2.9.x",
-    "lodash": "3.10.x",
+    "commander": "2.10.0",
+    "lodash": "4.17.4",
     "mkdirp": "0.5.x",
-    "opencc": "1.0.x"
+    "opencc": "1.0.4"
   },
   "devDependencies": {
-    "chai": "3.4.x",
-    "mocha": "2.3.x",
-    "rimraf": "2.5.x"
-  },
-  "scripts": {
-    "test": "mocha -c --recursive ./src/**/*.spec.js"
+    "chai": "^4.0.2",
+    "eslint": "^4.1.0",
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.1"
   },
   "repository": {
     "type": "git",
