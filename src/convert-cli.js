@@ -62,9 +62,8 @@ cli.work = function () {
     if (overwrite) {
       converter.convert(filepath, filepath);
     } else {
-      // Otherwise, include a '-trad' string in the file.
       var extname = path.extname(s);
-      var basename = path.basename(s, extname) + '-trad' + extname;
+      var basename = path.basename(s, extname) + extname;
       var newname;
       if (_.isUndefined(outDir)) {
         newname = path.resolve(inDir, basename);
