@@ -1,12 +1,10 @@
-'use strict';
-
-var fs = require('fs');
-var OpenCC = require('opencc');
+const fs = require("fs");
+const OpenCC = require("opencc");
 
 // Load the default Simplified to Traditional HK config
-var opencc = new OpenCC('s2hk.json');
+const opencc = new OpenCC("s2hk.json");
 
-var converter = {};
+const converter = {};
 
 /**
  *  This function converts the input file (in utf-8) and all the simplified
@@ -15,18 +13,19 @@ var converter = {};
  * @param  {[String]}   inputFile The input file in utf-8 form.
  * @param  {[String]}   outputFile The output file with all the traditional text
  */
-converter.convert = function (inputFile, outputFile) {
-  var options = {
-    encoding: 'utf8'
+converter.convert = function(inputFile, outputFile) {
+  const options = {
+    encoding: "utf8"
   };
 
   // The subtitle files tend to be pretty small.
-  var data = fs.readFileSync(inputFile, options);
+  const data = fs.readFileSync(inputFile, options);
 
-  var converted = opencc.convertSync(data);
+  // write out the subtitle
+  const converted = opencc.convertSync(data);
 
-  fs.writeFileSync(outputFile, converted, options);
+  // add byte ordering to the converted file (to ensure Windows can read it)
+  fs.writeFileSync(outputFile, `\ufeff${converted}`, options);
 };
-
 
 module.exports = converter;
