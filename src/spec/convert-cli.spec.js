@@ -1,5 +1,3 @@
-'use strict';
-
 const cli = require('../convert-cli');
 
 const _ = require('lodash');
