@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const converter = require('./converter');
 
 const _ = require('lodash');

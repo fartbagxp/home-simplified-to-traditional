@@ -1,5 +1,3 @@
-'use strict';
-
 const converter = require('../converter');
 
 const expect = require('chai').expect;

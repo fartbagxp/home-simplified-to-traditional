@@ -1,13 +1,15 @@
 {
   "name": "murray-simplified-to-traditional",
-  "version": "1.0.0",
-  "description": "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
+  "version": "1.0.1",
+  "description":
+    "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "gendocs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "test": "node_modules/.bin/mocha -c --recursive src/",
-    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive ./src/",
+    "cover":
+      "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive ./src/",
     "lint": "node_modules/.bin/eslint src/",
     "pre-commit": "npm run cover && npm run lint"
   },
@@ -15,7 +17,7 @@
     "commander": "2.15.1",
     "lodash": "4.17.5",
     "mkdirp": "0.5.x",
-    "opencc": "1.0.5"
+    "opencc": "1.0.4"
   },
   "devDependencies": {
     "chai": "^4.0.2",
@@ -25,14 +27,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fartbagxp/murray-simplified-to-traditional.git"
+    "url":
+      "git+https://github.com/fartbagxp/murray-simplified-to-traditional.git"
   },
   "author": "fartbagxp",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fartbagxp/murray-simplified-to-traditional/issues"
+    "url":
+      "https://github.com/fartbagxp/murray-simplified-to-traditional/issues"
   },
-  "homepage": "https://github.com/fartbagxp/murray-simplified-to-traditional#readme",
+  "homepage":
+    "https://github.com/fartbagxp/murray-simplified-to-traditional#readme",
   "bin": {
     "totrad": "./index.js"
   }
