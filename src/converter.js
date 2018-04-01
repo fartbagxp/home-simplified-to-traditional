@@ -1,8 +1,8 @@
-const fs = require("fs");
-const OpenCC = require("opencc");
+const fs = require('fs');
+const OpenCC = require('opencc');
 
 // Load the default Simplified to Traditional HK config
-const opencc = new OpenCC("s2hk.json");
+const opencc = new OpenCC('s2hk.json');
 
 const converter = {};
 
@@ -15,7 +15,7 @@ const converter = {};
  */
 converter.convert = function(inputFile, outputFile) {
   const options = {
-    encoding: "utf8"
+    encoding: 'utf8'
   };
 
   // The subtitle files tend to be pretty small.

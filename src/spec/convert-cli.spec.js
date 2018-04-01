@@ -25,7 +25,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     // Ensure the output file is correct.
     expect(data).equal(
-      '\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let\'s do this!\n'
+      "\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
 
     // Read the directory for all files, make sure there's the original test files.
@@ -59,7 +59,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     // Ensure the output file is correct.
     expect(data).equal(
-      '\ufeff1\r\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\r\nBoys, let\'s do this!\r\n'
+      "\ufeff1\r\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\r\nBoys, let's do this!\r\n"
     );
 
     // Delete the output file.

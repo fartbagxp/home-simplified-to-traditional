@@ -1,24 +1,20 @@
-#!/usr/bin/env node
+const converter = require('./converter');
 
-"use strict";
-
-const converter = require("./converter");
-
-const _ = require("lodash");
-const fs = require("fs");
-const mkdirp = require("mkdirp");
-const path = require("path");
-const program = require("commander");
+const _ = require('lodash');
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+const path = require('path');
+const program = require('commander');
 
 const cli = {};
 
 cli.work = function() {
   // Grab the command line arguments from the user to overwrite the data.
   program
-    .version("1.0.0")
-    .option("-f, --force", "Overwrite the original file.")
-    .option("-i, --input <path>", "The input directory")
-    .option("-o, --output <path>", "The output directory")
+    .version('1.0.0')
+    .option('-f, --force', 'Overwrite the original file.')
+    .option('-i, --input <path>', 'The input directory')
+    .option('-o, --output <path>', 'The output directory')
     .parse(process.argv);
 
   const overwrite = program.force;
@@ -26,7 +22,7 @@ cli.work = function() {
   // Make sure the input directory exist, if it doesn't, default to current dir
   let inDir;
   if (_.isUndefined(program.input)) {
-    inDir = path.resolve(".");
+    inDir = path.resolve('.');
   } else {
     inDir = path.resolve(program.input);
   }
@@ -49,7 +45,7 @@ cli.work = function() {
 
   const srts = [];
   _.forEach(files, function(f) {
-    if (_.endsWith(f, ".srt")) {
+    if (_.endsWith(f, '.srt')) {
       srts.push(f);
     }
   });
