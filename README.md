@@ -1,4 +1,4 @@
-# murray-simplified-to-traditional
+# Overview
 
 This project is a utility project for a home entertainment center to convert utf8 simplified chinese files to traditional chinese files.
 
@@ -6,10 +6,16 @@ It uses a simple converter that takes an input file (in utf-8) form, and attempt
 
 ## Installation
 
-* Note: On Windows, OpenCC 1.0.4 requires Microsoft Visual C++ 2013 version. So make sure to set `npm set 2013` prior to building.
+
+### Windows Installation
+* OpenCC 1.0.5 requires Microsoft Visual C++ 2015 version.
 
 ```javascript
 git clone git@github.com:fartbagxp/murray-simplified-to-traditional.git
+
+npm install --global --production windows-build-tools --vs2015
+
+npm config set msvs_version 2015
 
 npm install -g murray-simplified-to-traditional
 ```
