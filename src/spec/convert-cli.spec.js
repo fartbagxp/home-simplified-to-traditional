@@ -14,7 +14,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     cli.work();
 
-    const outputFile = path.resolve(__dirname, './data/simplified-trad.srt');
+    const outputFile = path.resolve(__dirname, './data/simplified.srt');
 
     // Read the contents
     const data = fs.readFileSync(outputFile, {
@@ -47,7 +47,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     const outputFile = path.resolve(
       __dirname,
-      './data/test/simplified-trad.srt'
+      './data/test/simplified.srt'
     );
 
     // Read the contents
