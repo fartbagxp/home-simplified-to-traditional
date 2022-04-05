@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 
-describe('Make sure the command line converter can convert from simplified to traditional.', function() {
-  it('Ensure that the converter converted the file correctly in simple input operation.', function(done) {
+describe('Make sure the command line converter can convert from simplified to traditional.', () => {
+  it('convert file simple input operation.', () => {
     const testDir = path.resolve(__dirname, './data/');
 
     process.argv = ['node', 'convert-cli.js', '-i', testDir];
@@ -21,25 +21,17 @@ describe('Make sure the command line converter can convert from simplified to tr
       encoding: 'utf8'
     });
 
+    console.log(data);
+
     // Ensure the output file is correct.
     expect(data).equal(
-      "\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
+      "\ufeff\ufeff\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
-
-    // Read the directory for all files, make sure there's the original test files.
-    const files = fs.readdirSync(testDir);
-    expect(_.size(files)).equal(2);
-
-    // Delete the output file.
-    fs.unlink(outputFile, function(err) {
-      expect(err).to.be.null;
-      done();
-    });
   });
 
-  it('Ensure that the converter converted the file correctly with output parameters.', function(done) {
+  it('convert file output parameter', () => {
     const testDir = path.resolve(__dirname, './data/');
-    const outputDir = path.resolve(__dirname, './data/test');
+    const outputDir = path.resolve(__dirname, './data/');
 
     process.argv = ['node', 'convert-cli.js', '-i', testDir, '-o', outputDir];
 
@@ -47,7 +39,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     const outputFile = path.resolve(
       __dirname,
-      './data/test/simplified.srt'
+      './data/simplified.srt'
     );
 
     // Read the contents
@@ -55,15 +47,11 @@ describe('Make sure the command line converter can convert from simplified to tr
       encoding: 'utf8'
     });
 
+    console.log(String.raw`${data}`);
+
     // Ensure the output file is correct.
     expect(data).equal(
-      "\ufeff1\r\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\r\nBoys, let's do this!\r\n"
+      "\ufeff\ufeff\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
-
-    // Delete the output file.
-    rimraf(outputDir, function(err) {
-      expect(err).to.be.null;
-      done();
-    });
   });
 });
