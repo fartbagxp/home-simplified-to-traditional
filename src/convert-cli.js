@@ -13,7 +13,7 @@ const cli = {};
 cli.work = function() {
   // Grab the command line arguments from the user to overwrite the data.
   program
-    .version('1.0.0')
+    .version('1.0.2')
     .option('-f, --force', 'Overwrite the original file.')
     .option('-i, --input <path>', 'The input directory')
     .option('-o, --output <path>', 'The output directory')
