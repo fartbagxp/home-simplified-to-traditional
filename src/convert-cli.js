@@ -2,7 +2,10 @@
 
 const converter = require('./converter');
 
-const _ = require('lodash');
+const foreach = require('lodash.foreach');
+const isundefined = require('lodash.isundefined');
+const endswith = require('lodash.endswith');
+
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
@@ -10,7 +13,7 @@ const program = require('commander');
 
 const cli = {};
 
-cli.work = function() {
+cli.work = () => {
   // Grab the command line arguments from the user to overwrite the data.
   program
     .version('1.0.2')
@@ -23,7 +26,7 @@ cli.work = function() {
 
   // Make sure the input directory exist, if it doesn't, default to current dir
   let inDir;
-  if (_.isUndefined(program.input)) {
+  if (isundefined(program.input)) {
     inDir = path.resolve('.');
   } else {
     inDir = path.resolve(program.input);
@@ -32,7 +35,7 @@ cli.work = function() {
   let outDir;
 
   // Ensure the output path is there, if it is not, create the directory.
-  if (!_.isUndefined(program.output)) {
+  if (!isundefined(program.output)) {
     outDir = path.resolve(program.output);
 
     try {
@@ -46,14 +49,14 @@ cli.work = function() {
   const files = fs.readdirSync(inDir);
 
   const srts = [];
-  _.forEach(files, function(f) {
-    if (_.endsWith(f, '.srt')) {
+  foreach(files, (f) => {
+    if (endswith(f, '.srt')) {
       srts.push(f);
     }
   });
 
   // Convert all .srt files into utf8 encoding.
-  _.forEach(srts, function(s) {
+  foreach(srts, (s) => {
     const filepath = path.resolve(inDir, s);
 
     // If the overwrite flag is turned on, use the same file path for output file.
@@ -63,7 +66,7 @@ cli.work = function() {
       const extname = path.extname(s);
       const basename = path.basename(s, extname) + extname;
       let newname;
-      if (_.isUndefined(outDir)) {
+      if (isundefined(outDir)) {
         newname = path.resolve(inDir, basename);
       } else {
         newname = path.resolve(outDir, basename);
