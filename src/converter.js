@@ -15,7 +15,7 @@ const converter = {};
  * @param  {[String]}   inputFile The input file in utf-8 form.
  * @param  {[String]}   outputFile The output file with all the traditional text
  */
-converter.convert = function(inputFile, outputFile) {
+converter.convert = (inputFile, outputFile) => {
   const options = {
     encoding: 'utf8'
   };

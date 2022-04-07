@@ -1,10 +1,8 @@
 const cli = require('../convert-cli');
 
-const _ = require('lodash');
 const expect = require('chai').expect;
 const fs = require('fs');
 const path = require('path');
-const rimraf = require('rimraf');
 
 describe('Make sure the command line converter can convert from simplified to traditional.', () => {
   it('convert file simple input operation.', () => {
