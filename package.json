@@ -14,8 +14,6 @@
   "dependencies": {
     "commander": "9.1.0",
     "lodash.endswith": "4.2.1",
-    "lodash.foreach": "4.5.0",
-    "lodash.isundefined": "3.0.1",
     "mkdirp": "1.0.4",
     "opencc": "^1.1.3"
   },
