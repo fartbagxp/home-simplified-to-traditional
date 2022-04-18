@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+
 const OpenCC = require('opencc');
+const toutf8 = require('./to-utf8');
 
 // Load the default Simplified to Traditional HK config
 const opencc = new OpenCC('s2hk.json');
@@ -16,18 +18,15 @@ const converter = {};
  * @param  {[String]}   outputFile The output file with all the traditional text
  */
 converter.convert = (inputFile, outputFile) => {
-  const options = {
-    encoding: 'utf8'
-  };
 
-  // The subtitle files tend to be pretty small.
-  const data = fs.readFileSync(inputFile, options);
+  // convert to utf8 if it isn't already
+  const data = toutf8.convert(inputFile);
 
   // write out the subtitle
   const converted = opencc.convertSync(data);
 
   // add byte ordering to the converted file (to ensure Windows can read it)
-  fs.writeFileSync(outputFile, `\ufeff${converted}`, options);
+  fs.writeFileSync(outputFile, converted);
 };
 
 module.exports = converter;
