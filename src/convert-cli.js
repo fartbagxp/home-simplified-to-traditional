@@ -6,14 +6,14 @@ const endswith = require('lodash.endswith');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
-const program = require('commander');
+const { program } = require('commander');
 
 const cli = {};
 
 cli.work = () => {
   // Grab the command line arguments from the user to overwrite the data.
   program
-    .version('1.0.3')
+    .version('1.0.4')
     .option('-f, --force', 'Overwrite the original file.')
     .option('-i, --input <value>', 'The input directory', '.')
     .option('-o, --output <value>', 'The output directory', '.')
