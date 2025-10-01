@@ -1,6 +1,6 @@
 {
   "name": "home-simplified-to-traditional",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Converts utf-8 simplified chinese file to utf-8 traditional chinese file.",
   "main": "index.js",
   "scripts": {

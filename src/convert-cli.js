@@ -6,31 +6,26 @@ const endswith = require('lodash.endswith');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
-const { program } = require('commander');
+const { Command } = require('commander');
+const packageJson = require('../package.json');
 
 const cli = {};
 
 cli.work = () => {
-  // Grab the command line arguments from the user to overwrite the data.
+  const program = new Command();
   program
-    .version('1.0.4')
+    .version(packageJson.version)
     .option('-f, --force', 'Overwrite the original file.')
     .option('-i, --input <value>', 'The input directory', '.')
-    .option('-o, --output <value>', 'The output directory', '.')
+    .option('-o, --output <value>', 'The output directory')
     .parse(process.argv);
 
   const overwrite = program.opts().force;
+  const inputDir = program.opts().input;
+  const outputDir = program.opts().output || path.join(inputDir, 'srt');
 
-  // Ensure the output path is there, if it is not, create the directory.
-  const outDir = path.resolve(program.opts().output);
-  try {
-    fs.accessSync(outDir, fs.F_OK);
-  } catch (e) {
-    mkdirp.sync(outDir);
-  }
-  
   // Read the directory for all files ending in .srt
-  const files = fs.readdirSync(program.opts().input);
+  const files = fs.readdirSync(inputDir);
 
   const srts = [];
   for(const f of files) {
@@ -39,9 +34,19 @@ cli.work = () => {
     }
   }
 
+  // Only create the output directory if there are files to convert
+  if (srts.length > 0 && !overwrite) {
+    const outDir = path.resolve(outputDir);
+    try {
+      fs.accessSync(outDir, fs.F_OK);
+    } catch (e) {
+      mkdirp.sync(outDir);
+    }
+  }
+
   // Convert all .srt files into utf8 encoding.
   for(const s of srts) {
-    const filepath = path.resolve(program.opts().input, s);
+    const filepath = path.resolve(inputDir, s);
 
     // If the overwrite flag is turned on, use the same file path for output file.
     if (overwrite) {
@@ -49,12 +54,12 @@ cli.work = () => {
     } else {
       const extname = path.extname(s);
       const basename = path.basename(s, extname) + extname;
-      const newname = path.resolve(program.opts().output, basename);
+      const newname = path.resolve(outputDir, basename);
       converter.convert(filepath, newname);
     }
   }
 
-  console.log(`Converted ${srts.length} .srt files from ${program.opts().input} to ${program.opts().output}`)
+  console.log(`Converted ${srts.length} .srt files from ${inputDir} to ${outputDir}`)
 };
 
 module.exports = cli;

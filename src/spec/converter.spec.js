@@ -19,7 +19,7 @@ describe('Make sure the converter works for converting simplified chinese files 
 
     // Ensure the output file is correct.
     expect(data).equal(
-      "\ufeff\ufeff\ufeff\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
+      "1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
   });
 });
