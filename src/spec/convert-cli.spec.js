@@ -12,7 +12,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     cli.work();
 
-    const outputFile = path.resolve(__dirname, './data/simplified.srt');
+    const outputFile = path.resolve(__dirname, './data/srt/simplified.srt');
 
     // Read the contents
     const data = fs.readFileSync(outputFile, {
@@ -23,7 +23,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     // Ensure the output file is correct.
     expect(data).equal(
-      "\ufeff\ufeff\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
+      "1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
   });
 
@@ -49,7 +49,7 @@ describe('Make sure the command line converter can convert from simplified to tr
 
     // Ensure the output file is correct.
     expect(data).equal(
-      "\ufeff\ufeff\ufeff1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
+      "1\n00:02:06,090 --> 00:02:09,300\n小夥子們 我們出發啦\nBoys, let's do this!\n"
     );
   });
 });
