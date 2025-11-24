@@ -12,7 +12,7 @@
     "pre-commit": "npm run cover && npm run lint"
   },
   "dependencies": {
-    "commander": "14.0.1",
+    "commander": "14.0.2",
     "iconv-lite": "0.7.0",
     "jschardet": "3.1.4",
     "lodash.endswith": "4.2.1",
@@ -21,10 +21,10 @@
     "opencc": "github:BYVoid/OpenCC"
   },
   "devDependencies": {
-    "chai": "^6.2.0",
-    "eslint": "^9.36.0",
-    "mocha": "^11.7.3",
-    "rimraf": "^6.0.1"
+    "chai": "^6.2.1",
+    "eslint": "^9.39.1",
+    "mocha": "^11.7.5",
+    "rimraf": "^6.1.2"
   },
   "repository": {
     "type": "git",
