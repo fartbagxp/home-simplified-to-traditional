@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "commander": "14.0.2",
-    "iconv-lite": "0.7.0",
+    "iconv-lite": "0.7.1",
     "jschardet": "3.1.4",
     "lodash.endswith": "4.2.1",
     "lodash.isundefined": "3.0.1",
@@ -21,8 +21,8 @@
     "opencc": "github:BYVoid/OpenCC"
   },
   "devDependencies": {
-    "chai": "^6.2.1",
-    "eslint": "^9.39.1",
+    "chai": "^6.2.2",
+    "eslint": "^9.39.2",
     "mocha": "^11.7.5",
     "rimraf": "^6.1.2"
   },
